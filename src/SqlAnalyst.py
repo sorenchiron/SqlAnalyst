@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 ## by sorenchen
 ## 2015 10
 
@@ -602,15 +603,17 @@ def __arg_b__(sa, arg_map, arg_index, value):
 def __arg_g__(sa, arg_map, arg_index, value):
     if value == "drop-all":
         sa.gen_drop_all()
+        exit()
     elif value == "drop-mid":
         sa.gen_drop_mid()
+        exit()
     elif os.path.isfile(value):
         for e in sa.EntityList:
             if e.FileName == value :
                 for d in e.gen_drops():
                     print (d)
                 exit(0)
-    print ("gen: no such option or filename")
+    print ("gen: no such option or filename",value)
     exit(0)
 
 def __show__(sa, arg_map, arg_index):

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 ## by sorenchen
 ## 2015 10
 import os
@@ -5,14 +6,17 @@ import shutil
 import sys
 
 main_py="SqlAnalyst.py"
-
+## always good for windows
 win_path="""C:\\Windows\\System32"""
-unix_path="""\\usr\\bin"""
+## in case that /usr/bin is not permited
+unix_path="""\\usr\\local\\bin"""
 used_path=""
 target="sqla.py"
 
 libpath=sys.prefix+'\\'+'Lib'
 module="sqla"
+
+print ("preparing Lib installation to:",libpath)
 
 if os.path.exists(win_path):
     print ("windows detected")
@@ -25,6 +29,7 @@ else:
     print ("abort installation")
     exit(0)
 
+print ("preparing Bin installation to:",used_path)
 
 def has_prev_version(path,target,for_dir=False):
     files=[]
